@@ -10,6 +10,7 @@
     <script src="socket.io/socket.io.js"></script>
     <script>
       let socket = io()
+
       socket.on('connect', function () {
         console.log('Conectado al servidor')
       })
@@ -25,6 +26,15 @@
 
       socket.on('mensaje', function (data) {
         console.log(data)
+      })
+
+      socket.on('nuevo-mensaje-flutter', function (data) {
+        console.log('Escuchando', data)
+      })
+
+      socket.on('active-bands', function (data) {
+        console.clear()
+        console.table(data)
       })
     </script>
   </body>
